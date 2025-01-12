@@ -6,8 +6,12 @@ resource "aws_vpc" "eks_vpc" {
 
 
   # Implementando tags
-  tags = {
-    Name = "comunidadedevops-vpc"
-  }
+  # Vai fazer o merge das tags locais com as tags que estão sendo criadas
+  tags = merge(
+    local.tags,
+    {
+      Name = "comunidadedevops-vpc"
+    }
+  )
 
 }
