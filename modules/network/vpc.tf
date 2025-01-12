@@ -8,7 +8,7 @@ resource "aws_vpc" "eks_vpc" {
   # Implementando tags
   # Vai fazer o merge das tags locais com as tags que estão sendo criadas
   tags = merge(
-    local.tags,
+    var.tags,
     {
       Name = "${var.project_name}-vpc"
     }
