@@ -29,8 +29,7 @@ resource "aws_iam_role" "eks_cluster_role" {
 }
 
 # Vamos anexar a policy AmazonEKSClusterPolicy ao role criado que permite o EKS gerenciar clusters
-resource "aws_iam_policy_attachment" "eks_cluster_role_attachment" {
-  name       = "${var.project_name}-cluster-role-attachment"
-  roles      = aws_iam_role.eks_cluster_role.name
+resource "aws_iam_role_policy_attachment" "eks_cluster_role_attachment" {
+  role       = aws_iam_role.eks_cluster_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
