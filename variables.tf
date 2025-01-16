@@ -8,3 +8,15 @@ variable "project_name" {
   description = "Project name to be used to name the resources (Name tag)"
 
 }
+
+variable "region" {
+  type        = string
+  description = "AWS region to deploy the resources"
+
+}
+
+variable "tags" {
+  type        = map(any)
+  description = "Tags to be added to all AWS resources"
+
+}
